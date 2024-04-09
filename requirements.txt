@@ -11,3 +11,4 @@ nltk
 plotly
 joblib
 matplotlib
+torchmetrics
