@@ -8,10 +8,12 @@ from torch.utils.data import DataLoader
 from prettytable import PrettyTable
 
 if __name__ == "__main__":
-    MODE = 'code'
+    MODE = 'code'  # 'topic'
     RATIO = 0
     BATCH_SIZE = 1024
     NUM_WORKER = 0
+
+    print("Evaluate: ", MODE)
 
     data = build_cluster_repo_embedding(mode=MODE)
     _, data_index = build_dataset(data, ratio=RATIO)
@@ -33,14 +35,16 @@ if __name__ == "__main__":
     model.eval()
     criterion.eval()
     print("Data Set:", len(data_set))
-    print("Training on", device)
+    print("Evaluating on", device)
 
     acc, loss, precision, recall, f1, auroc, eff, tot = evaluate(model, data_loader, device, criterion)
 
+#########################################################################################
+    # only for show how to calculate similarity and show a part of results
     # calculate similarity
     table = PrettyTable()
     table.field_names = ["NUM", "REPO1", "REPO2", "ID1", "ID2", "LABEL", "SIMILARITY", "LOSS"]
-    repo_num = 15
+    repo_num = 15  ## modify this to control the number of shown samples
     total_loss = 0
     for i, (i1, i2, label) in enumerate(data_index[:repo_num]):
         repo1, repo2 = data[i1], data[i2]
