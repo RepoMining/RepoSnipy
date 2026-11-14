@@ -104,6 +104,10 @@ The resultant ROC AUC score of each level embeddings are as following:
 * requirement embeddings with [0.638](evaluation/ROC_evaluation_requirement_embedding.png).
 * repository embeddings with [0.827](evaluation/ROC_evaluation_repository_embedding.png).
 
+## Community Extensions
+
+- **[RepoSnipy-NL](https://github.com/RepoMining/RepoSnipy-NL)** — A community-driven extension enabling natural-language search for Python repositories using existing RepoSim4Py embeddings. Developed and maintained by [dyb158507](https://github.com/dyb158507).
+
 ## License
 
 Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
